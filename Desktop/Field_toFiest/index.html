@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field to Feast - Premium Meat Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            padding: 5px;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+    background: linear-gradient(135deg, brown, rgb(37, 81, 213)); 
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Logo Styling */
+.logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(80, 10, 10, 0.9)); /* Dark Brown to Light Red */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+    animation: rotateBackground 4s linear infinite;
+}
+
+/* FontAwesome Icon */
+.logo i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+/* Animated background effect */
+.logo::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.6), rgba(139, 0, 0, 0.6));
+    z-index: -1;
+    transform: rotate(0deg);
+    animation: rotateBackground 4s linear infinite;
+}
+
+/* Animation */
+@keyframes rotateBackground {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hover effect */
+.logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(139, 0, 0, 1);
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+        
+        nav {
+            background-color: #f8f8f8;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #e8f5e9;
+            color: #1e7d32;
+        }
+
+
+
+        @keyframes zoomAnimation {
+    0% { background-size: 100%; }
+    50% { background-size: 110%; }
+    100% { background-size: 100%; }
+}
+
+@keyframes pulseAnimation {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/background.jpg');
+    height: 100vh; /* Full screen height */
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    animation: zoomAnimation 20s infinite alternate ease-in-out; /* Zoom effect */
+    position: relative;
+}
+
+.hero .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    z-index: 2; /* Higher than background */
+    animation: pulseAnimation 8s infinite ease-in-out; /* Cool pulsing animation */
+}
+
+.hero .hero-content {
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 2rem;
+    border-radius: 4em 1.5em 4em 1.5em;
+    backdrop-filter: blur(5px); /* Blurring background */
+    z-index: 3; /* On top of the container and background */
+    position: relative; /* Keeps it in place */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+        
+        
+
+@keyframes rotateButtonEffect {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes pulseButtonEffect {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+.cta-button {
+    background-color: #e53935;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    z-index: 3; /* Ensure button is on top */
+    position: relative;
+    animation: rotateButtonEffect 6s infinite ease-in-out, pulseButtonEffect 4s infinite alternate ease-in-out; /* Rotation and pulse effect */
+    background-image: linear-gradient(135deg, rgb(8, 36, 36), rgb(107, 18, 67), rgba(0, 0, 255, 0.519)); /* RGB color gradient */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4); /* Add shadow for depth */
+}
+
+.cta-button:hover {
+    background-color: #c62828;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6); /* Enhanced shadow on hover */
+}
+
+    
+        
+        
+
+
+
+        
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 1rem;
+    background-color: white;
+}
+
+.feature {
+    position: relative;  /* Ensure positioning for pseudo-elements */
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #f9f9f9;
+    overflow: hidden;  /* Hide any overflow caused by pseudo-elements */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(255, 0, 0, 0.2)); /* RGB gradient */
+    z-index: -1;  /* Make sure this stays behind the content */
+    transition: background 0.5s ease;  /* Smooth transition */
+}
+
+.feature::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: -2; /* Lower than ::before to provide an additional layer */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Hover effect to make the feature stand out */
+.feature:hover {
+    transform: translateY(-5px); /* Slight raise on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature:hover::before {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(255, 0, 0, 0.4)); /* Darker gradient on hover */
+}
+
+.feature:hover::after {
+    opacity: 0.2; /* Increase opacity on hover */
+}
+
+/* Feature Icon styling */
+.feature i {
+    font-size: 2.5rem;
+    color: #1e7d32;
+    margin-bottom: 1rem;
+}
+
+/* Feature Title */
+.feature h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+        
+
+
+
+
+
+
+
+        .products {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #e53935;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        
+
+
+        .product-card {
+    position: relative; /* Needed for pseudo-elements */
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1; /* Ensure content stays on top */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* First pseudo-element for glowing border effect */
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, rgba(49, 70, 205, 0.3), rgba(16, 213, 235, 0.3)); /* Light red and dark brown */
+    z-index: -1;
+    border-radius: 50% 48% 53% 46%;
+    animation: rotate-scale 6s infinite ease-in-out;
+}
+
+/* Second pseudo-element for secondary glowing effect */
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: -15%;
+    left: -15%;
+    width: 130%;
+    height: 130%;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.4), rgba(17, 72, 181, 0.4)); /* Dark brown and light red */
+    z-index: -2;
+    border-radius: 5em;
+    animation: rotate-scale-reverse 6s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+/* Animation to make the borders scale and rotate */
+@keyframes rotate-scale {
+    0% {
+        transform: scale(1) rotate(68deg);
+    }
+    50% {
+        transform: scale(1.5) rotate(70deg);
+    }
+    100% {
+        transform: scale(1) rotate(68deg);
+    }
+}
+
+@keyframes rotate-scale-reverse {
+    0% {
+        transform: scale(1) rotate(190deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(194deg);
+    }
+    100% {
+        transform: scale(1) rotate(190deg);
+    }
+}
+
+        
+        .product-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-name {
+            font-family: "Mv boli";
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e53935;
+            margin-bottom: 1rem;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .add-to-cart {
+            background-color: #1e7d32;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #145a23;
+        }
+        
+        .testimonials {
+            background-color: #e8f5e9;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+
+
+
+        .gallery-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f8f8f8;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.gallery-item {
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+
+        
+        .contact {
+            padding: 3rem 1rem;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        .submit-button {
+            background-color: #1e7d32;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-button:hover {
+            background-color: #145a23;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .social-icons i {
+            font-size: 1.5rem;
+            color: #aaa;
+            transition: color 0.3s;
+        }
+        
+        .social-icons i:hover {
+            color: white;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            color: #aaa;
+        }
+        
+        .cart-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e53935;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            color: #e53935;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .feature {
+                min-width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-drumstick-bite"></i>
+            </div>
+            <h1>Field to Feast</h1>
+        </div>
+        <p>Premium Quality Meat Products</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Fresh Farm to Table Meats</h1>
+            <p>Experience the finest quality meats sourced directly from Kenyan farms. We guarantee freshness, taste, and exceptional quality with every cut.</p>
+            <button class="cta-button">Shop Now</button>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="feature">
+            <i class="fas fa-medal"></i>
+            <h3>Premium Quality</h3>
+            <p>Our meats are sourced from the finest farms in Kenya, ensuring superior taste and quality with every purchase.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-truck"></i>
+            <h3>Free Delivery</h3>
+            <p>Enjoy free delivery on orders above KES 2,500 within Nairobi and its environs.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-cut"></i>
+            <h3>Custom Cuts</h3>
+            <p>Special cutting requirements? Our expert butchers will prepare your meat exactly how you want it.</p>
+        </div>
+    </section>
+    
+    <section id="products" class="products">
+        <h2 class="section-title">Our Products</h2>
+        <div class="product-grid" id="productGrid">
+            <!-- Products will be added dynamically with JavaScript -->
+        </div>
+    </section>
+    
+    <section id="about" class="about-us">
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-history"></i>
+                <h3>Our Story</h3>
+                <p>Field to Feast started in 2010 with a simple mission: to bring the freshest farm-raised meats directly to Kenyan consumers. Today, we're proud to be one of the leading suppliers of premium meat products in the country.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-leaf"></i>
+                <h3>Sustainable Practices</h3>
+                <p>We work closely with farmers who practice sustainable and ethical farming methods. Our animals are raised in humane conditions with proper care and nutrition.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-users"></i>
+                <h3>Our Team</h3>
+                <p>Our team consists of experienced butchers and meat experts who are passionate about providing the best meat products to our customers. We take pride in our craftsmanship.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">Customer Testimonials</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"The quality of meat from Field to Feast is unmatched. I've been a loyal customer for over 3 years now and have never been disappointed."</p>
+                <p class="testimonial-author">- James Ochieng, Nairobi</p>
+            </div>
+            <div class="testimonial">
+                <p>"Their same-day delivery service is excellent! The meat arrives fresh and perfectly packaged. Highly recommend their goat meat!"</p>
+                <p class="testimonial-author">- Sarah Kamau, Kiambu</p>
+            </div>
+            <div class="testimonial">
+                <p>"As a restaurant owner, quality and consistency are important to me. Field to Feast has been my trusted supplier for 2 years now."</p>
+                <p class="testimonial-author">- Chef Daniel Mwangi, Westlands</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="image-gallery" class="gallery-section">
+        <h2 class="section-title">Our Facilities & Products</h2>
+        
+        <div class="gallery-container">
+            <img src="./images/img1.jpg" alt="Our Storefront" class="gallery-item">
+            
+        </div>
+    </section>
+    
+    
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Field to Feast</h3>
+                <p>Your trusted source for premium quality meat products in Kenya. From field to feast, we bring the best to your table.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Mombasa Road, Nairobi</p>
+                <p><i class="fas fa-phone"></i> +254 712 345 678</p>
+                <p><i class="fas fa-envelope"></i> info@fieldtofeast.co.ke</p>
+                <p><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 6:00 PM</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Field to Feast. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <div class="cart-icon" id="cartIcon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+    
+    <script>
+        // Product data
+        const products = [
+            {
+                id: 1,
+                name: "Prime Beef Steak",
+                price: 950,
+                image: "./images/_beefstreak.jpg",
+                description: "Premium cut beef steak, perfect for grilling. Sourced from grass-fed cattle."
+            },
+            {
+                id: 2,
+                name: "Lamb chop",
+                price: 1200,
+                image: "./images/_lambchop.jpg",
+                description: "Tender and juicy lamb chops. Ideal for special occasions and family gatherings."
+            },
+            {
+                id: 3,
+                name: "Chicken Drumsticks",
+                price: 450,
+                image: "./images/_drumsticks.jpg",
+                description: "Free-range chicken drumsticks. Perfect for barbecues and family meals."
+            },
+            {
+                id: 4,
+                name: "Goat Meat",
+                price: 850,
+                image: "./images/_goatmeat.jpg",
+                description: "Fresh goat meat cut into pieces. Great for stews and traditional dishes."
+            },
+            {
+                id: 5,
+                name: "Pork Ribs",
+                price: 780,
+                image: "./images/_ribs.jpg",
+                description: "Succulent pork ribs for that perfect BBQ experience or slow cooking."
+            },
+            {
+                id: 6,
+                name: "Beef Mince",
+                price: 620,
+                image: "./images/_mince.jpg",
+                description: "Freshly ground beef mince. Perfect for burgers, bolognese, and more."
+            },
+            {
+                id: 7,
+                name: "Oxtail",
+                price: 1100,
+                image: "./images/_oxtail.jpg",
+                description: "Rich and flavorful oxtail. Ideal for slow-cooked stews and soups."
+            },
+            {
+                id: 8,
+                name: "T-Bone Steak",
+                price: 1250,
+                image: "./images/_streak.jpg",
+                description: "Premium T-bone steak combining tenderloin and strip steak in one cut."
+            }
+        ];
+        
+        // Initialize the cart
+        let cart = [];
+        
+        // Function to render products
+        function renderProducts() {
+            const productGrid = document.getElementById('productGrid');
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">KES ${product.price.toLocaleString()}/kg</p>
+                        <p class="product-description">${product.description}</p>
+                        <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+                    </div>
+                `;
+                
+                productGrid.appendChild(productCard);
+            });
+            
+            // Add event listeners to the Add to Cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    addToCart(productId);
+                });
+            });
+        }
+        
+        // Function to add a product to the cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            
+            if (product) {
+                const existingItem = cart.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                
+                // Animation effect
+                const button = document.querySelector(`.add-to-cart[data-id="${productId}"]`);
+                button.innerHTML = 'Added!';
+                button.style.backgroundColor = '#4caf50';
+                
+                setTimeout(() => {
+                    button.innerHTML = 'Add to Cart';
+                    button.style.backgroundColor = '#1e7d32';
+                }, 1000);
+            }
+        }
+        
+        // Function to update the cart count
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+        
+        // Cart icon click event
+        document.getElementById('cartIcon').addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            let cartMessage = 'Cart Items:\n\n';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                cartMessage += `${item.name} x ${item.quantity} - KES ${itemTotal.toLocaleString()}\n`;
+                total += itemTotal;
+            });
+            
+            cartMessage += `\nTotal: KES ${total.toLocaleString()}`;
+            
+            alert(cartMessage);
+        });
+        
+        // Contact form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Initialize the page
+        window.onload = function() {
+            renderProducts();
+        };
+    </script>
+</body>
+</html>
