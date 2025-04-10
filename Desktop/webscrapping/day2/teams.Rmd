@@ -1,0 +1,163 @@
+```{R}
+library(ggplot2)
+library(dplyr)
+
+data_teams <- read.csv("teams.csv")
+
+
+colSums(is.na(data_teams))
+
+ggplot(data_teams, aes(x = Goals_for_gf, y = Wins)) +
+  geom_point(color="red") +
+  geom_smooth(method="lm", se=FALSE, color="black") +
+  labs(title="Wins vs Goals Scored", x="Goals Scored", y="Wins") +
+  theme_minimal()
+
+model <- lm(Wins ~ Goals_for_gf, data=data_teams)
+summary(model)
+
+ggplot(data_teams, aes(x = year, y = Wins, group=Team_name, color=Team_name)) +
+  geom_line() +
+  labs(title="Wins Over the Years", x="Year", y="Wins") +
+  theme_minimal()
+
+
+
+
+
+```
+
+
+```{r}
+
+data_arr <- data_teams %>%
+             
+             arrange(desc(Wins))
+
+head(data_arr)
+
+data_arr_isna <- mean(data_arr$Wins, na.rm=TRUE)
+
+library(ggplot2)
+library(forcats)  # For reordering categorical variables
+
+ggplot(data = data_arr, aes(x = fct_reorder(Team_name, Wins), y = Wins)) +
+  geom_bar(stat = "identity", fill = "orange", color = "black") + 
+  labs(title = "Wins for Each Team", x = "Team Name", y = "Wins") +
+  theme_minimal() +
+  theme
+  
+
+  
+
+
+
+
+```
+
+```{r}
+ggplot(data = data_arr, aes(x = fct_reorder(Team_name, Losses), y = Losses)) +
+  geom_bar(stat = "identity", color="blue", fill="red") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
+```
+
+```{r}
+# Load necessary libraries
+library(tidyverse)
+library(ggplot2)
+library(corrplot)
+
+# Load the dataset
+data <- read.csv("teams.csv")
+
+# View basic structure
+str(data)
+
+# Check for missing values
+colSums(is.na(data))
+
+# Fill missing OT Losses with 0
+data$OT.Losses[is.na(data$OT.Losses)] <- mean(data$OT.Losses, na.rm=TRUE)
+
+# Summary Statistics
+summary(data)
+
+# Correlation Analysis
+numeric_data <- data %>% select_if(is.numeric)
+cor_matrix <- cor(numeric_data, use = "complete.obs")
+
+# Visualizing Correlation Heatmap
+corrplot(cor_matrix, method="color", addCoef.col="black", tl.cex=0.8)
+
+# Distribution of Wins
+ggplot(data, aes(x = Wins)) +
+  geom_histogram(fill = "orange", bins = 20, color = "black", alpha = 0.7) +
+  labs(title = "Distribution of Wins", x = "Wins", y = "Frequency") +
+  theme_minimal()
+
+# Trend of Wins over the years
+ggplot(data, aes(x = year, y = Wins)) +
+  stat_summary(fun = mean, geom = "line", color = "blue", size = 1) +
+  geom_point(aes(y = Wins), color = "red", alpha = 0.4) +
+  labs(title = "Average Wins Per Year", x = "Year", y = "Wins") +
+  theme_minimal()
+
+# Scatter Plot: Wins vs Goals For
+ggplot(data, aes(x = Goals_for_gf, y = Wins)) +
+  geom_point(color = "blue", alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(title = "Wins vs Goals Scored", x = "Goals Scored", y = "Wins") +
+  theme_minimal()
+
+
+
+
+
+```
+
+
+```{r}
+
+
+library(dplyr)
+
+data_sel = data_arr %>% select_if(is.numeric) %>% filter(year > 2000) %>% select(Wins, year) %>% summarize(av_wins = mean(Wins))
+
+print(data_sel)
+
+library(ggplot2)
+
+data_arr %>%
+  mutate(win_percentage = Wins / (Wins + Losses)) %>%
+  ggplot(aes(x = reorder(Team_name, win_percentage), y = win_percentage)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Team Wins", x = "Team", y = "Wins") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
